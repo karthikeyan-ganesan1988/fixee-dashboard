@@ -1,0 +1,127 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Service-Provider Records" blockClass="pt-0">
+            <div ngbAccordion>
+                <div class="row">
+                    <div class="input-group mb-3" style="margin-bottom: -5rem !important;">
+                        <label class="input-group-text" style="border: none; background-color: #fff; margin-bottom: 10%; padding-bottom: 5%;">
+                            Start Date
+                        </label>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <datetime id="startDatepicker" [timepicker]="false" [ngModel]="startDatepicker"                                                         
+                                (ngModelChange)="startDateChange($event)" name="startDatePicker"
+                                [datepicker]="datepickerStartDateOptions"></datetime>
+                            </div>
+                        </div>
+                        <label class="input-group-text" style="border: none; background-color: #fff; margin-bottom: 10%; padding-bottom: 5%;">
+                            End Date
+                        </label>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <datetime id="endDatepicker"  [timepicker]="false" [ngModel]="endDatepicker"                                                           
+                                (ngModelChange)="endDateChange($event)" name="endDatepicker"
+                                [datepicker]="datepickerEndDateOptions"></datetime>
+                                <label style="color: red;
+                                text-align: center;
+                                padding: 0;" *ngIf="this.endDateWarning">End Date must be on or after the Start Date</label>                                
+                            </div>
+                        </div>
+                        <label class="input-group-text" style="border: none; background-color: #fff; margin-bottom: 10%; padding-bottom: 5%;">
+                            Phone Number
+                        </label>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <input type="tel" id="phoneNumber" class="form-control" placeholder="PhoneNumber" (input)="phoneInfo($event)" aria-label="PhoneNumber" maxlength="10" [ngModel]="phoneNumber" />
+                            </div>
+                        </div>
+                        <label class="input-group-text" style="border: none; background-color: #fff; margin-bottom: 10%; padding-bottom: 5%;">
+                            Plan
+                        </label>
+                        <div class="col-xs-10" style="width: 18vh;">
+                            <div class="form-group">
+                                <select class="form-control" name="planType" id="planType" [ngModel]="planType" (change)=planTypeInfo($event)>
+                                    <option value="All">All</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Quarterly">Quarterly</option>
+                                    <option value="Yearly">Yearly</option>                                    
+                                  </select>
+                                  <button type="button" class="d-flex flex-wrap gap-2 btn btn-primary" ngbTooltip="Submit" style="margin-top: 20%; margin-left: 25%;" 
+                                  [disabled]='this.PhoneNo == "" && (this.endDateWarning || this.startDate == "" || this.endDate == "") && this.planTypeValue == ""'
+                                  (click)="submitBasicReport()">Submit</button>                                
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <p-table styleClass="p-datatable-gridlines" #dt selectionMode="single"
+                        [responsive]="true" [value]="basicProviderDetails" reorderableColums="true" [rows]="10"
+                        [paginator]="true" [rowsPerPageOptions]="[5,10,20]"
+                        [globalFilterFields]="['PhoneNo','SubscriptionDate','Plan','ServiceType','Services','Location']">
+                        <ng-template pTemplate="caption">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="button" class="d-flex flex-wrap gap-2 btn btn-primary" ngbTooltip="All Data"
+                                    iconPos="left" (click)="exportFile(dt)">Export</button>
+                                </div>
+                                <div class="col-5 text-end">
+                                    <span class="p-d-flex p-input-icon-left p-ml-auto">
+                                        <input pInputText class="form-control" type="text"
+                                        (input)="dt.filterGlobal($any($event).target.value, 'contains')"
+                                        style="width: 450px !important;" [placeholder]="'Search Basic Provider Records'"/>
+                                        <i class="pi pi-search" style="left: 28rem;"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th [pSortableColumn]="'PhoneNo'">
+                                    PhoneNo
+                                    <p-sortIcon [field]="'PhoneNo'"></p-sortIcon>
+                                </th>
+                                <th [pSortableColumn]="'SubscriptionDate'">
+                                    SubscriptionDate
+                                    <p-sortIcon [field]="'SubscriptionDate'"></p-sortIcon>
+                                </th>
+                                <th [pSortableColumn]="'Plan'">
+                                    Plan
+                                    <p-sortIcon [field]="'Plan'"></p-sortIcon>
+                                </th>
+                                <th [pSortableColumn]="'ServiceType'">
+                                    ServiceType
+                                    <p-sortIcon [field]="'ServiceType'"></p-sortIcon>
+                                </th>
+                                <th [pSortableColumn]="'Services'">
+                                    Services
+                                    <p-sortIcon [field]="'Services'"></p-sortIcon>
+                                </th>
+                                <th [pSortableColumn]="'Location'">
+                                    Location
+                                    <p-sortIcon [field]="'Location'"></p-sortIcon>
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData let-record *ngIf="!emptyGrid">
+                            <tr [pSelectableRow]="record">
+                                <td class="word-wrap">{{record.PhoneNo}}</td>
+                                <td class="word-wrap">{{record.SubscriptionDate}}</td>
+                                <td class="word-wrap">{{record.Plan}}</td>
+                                <td class="word-wrap">{{record.ServiceType}}</td>
+                                <td class="word-wrap">{{record.Services}}</td>
+                                <td class="word-wrap">{{record.Location}}</td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                            <tr *ngIf="!emptyGrid" >
+                                <td class="word-wrap text-center" colspan="6">
+                                    <span>No Records Found</span>
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                    </div>                                        
+                </div>                                
+            </div>
+        </app-card>
+    </div>
+</div>

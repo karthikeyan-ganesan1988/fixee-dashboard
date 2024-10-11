@@ -1,0 +1,8 @@
+{
+    "/getUser/*":{
+        "target":"https://asia-south1-projectx-f917c.cloudfunctions.net",
+        "secure":false,
+        "logLevel":"debug",
+        "changeOrigin":true
+    }
+}
