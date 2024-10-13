@@ -10,11 +10,6 @@ export interface NavigationItem {
   exactMatch?: boolean;
   external?: boolean;
   target?: boolean;
-  breadcrumbs?: boolean;
-  badge?: {
-    title?: string;
-    type?: string;
-  };
   children?: NavigationItem[];
 }
 
@@ -29,7 +24,7 @@ export const NavigationItems: NavigationItem[] = [
         id: 'home',
         title: 'Home',
         type: 'item',
-        url: '/dashboard/analytics',
+        url: '/analytics',
         icon: 'feather icon-home'
       }
     ]
@@ -51,19 +46,7 @@ export const NavigationItems: NavigationItem[] = [
             title: 'Service Providers',
             type: 'item',
             url: '/component/providers'
-          },
-          {
-            id: 'pro',
-            title: 'Pro',
-            type: 'item',
-            url: '/component/pro'
-          },
-          {
-            id: 'premium',
-            title: 'Premium',
-            type: 'item',
-            url: '/component/premium'
-          }
+          }          
         ]
       }
     ]
@@ -84,31 +67,31 @@ export const NavigationItems: NavigationItem[] = [
             id: 'calls',
             title: 'Calls',
             type: 'item',
-            url: '/component/button'
+            url: '#'
           },
           {
             id: 'active',
             title: 'Active',
             type: 'item',
-            url: '/component/badges'
+            url: '#'
           },
           {
             id: 'conversion',
             title: 'Conversion',
             type: 'item',
-            url: '/component/breadcrumb-paging'
+            url: '#'
           },
           {
             id: 'enquiry',
             title: 'Enquiry',
             type: 'item',
-            url: '/component/collapse'
+            url: '#'
           },
           {
             id: 'complaint',
             title: 'Complaint',
             type: 'item',
-            url: '/component/tabs-pills'
+            url: '#'
           }
         ]
       }
@@ -130,7 +113,7 @@ export const NavigationItems: NavigationItem[] = [
             id: 'fieldleads',
             title: 'Field Leads',
             type: 'item',
-            url: '/component/collapse'
+            url: '#'
           }
         ]
       }
@@ -152,7 +135,7 @@ export const NavigationItems: NavigationItem[] = [
             id: 'failedpayment',
             title: 'Failed Payment',
             type: 'item',
-            url: '/component/breadcrumb-paging'
+            url: '#'
           }
         ]
       }
@@ -174,25 +157,25 @@ export const NavigationItems: NavigationItem[] = [
             id: 'active',
             title: 'Active',
             type: 'item',
-            url: '/component/button'
+            url: '#'
           },
           {
             id: 'basic',
             title: 'Basic',
             type: 'item',
-            url: '/component/badges'
+            url: '#'
           },
           {
             id: 'halted',
             title: 'Halted',
             type: 'item',
-            url: '/component/breadcrumb-paging'
+            url: '#'
           },
           {
             id: 'canceled',
             title: 'Canceled',
             type: 'item',
-            url: '/component/collapse'
+            url: '#'
           }
         ]
       }
@@ -215,137 +198,16 @@ export const NavigationItems: NavigationItem[] = [
             id: 'summary',
             title: 'Summary',
             type: 'item',
-            url: '/component/button'
+            url: '#'
           },
           {
             id: 'performance',
             title: 'Performance',
             type: 'item',
-            url: '/component/button'
+            url: '#'
           }
         ]
       }
     ]
-  },
-  
- 
-
-  // {
-  //   id: 'Authentication',
-  //   title: 'Authentication',
-  //   type: 'group',
-  //   icon: 'icon-group',
-  //   children: [
-  //     {
-  //       id: 'signup',
-  //       title: 'Sign up',
-  //       type: 'item',
-  //       url: '/auth/signup',
-  //       icon: 'feather icon-at-sign',
-  //       target: true,
-  //       breadcrumbs: false
-  //     },
-  //     {
-  //       id: 'signin',
-  //       title: 'Sign in',
-  //       type: 'item',
-  //       url: '/auth/signin',
-  //       icon: 'feather icon-log-in',
-  //       target: true,
-  //       breadcrumbs: false
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'chart',
-  //   title: 'Chart',
-  //   type: 'group',
-  //   icon: 'icon-group',
-  //   children: [
-  //     {
-  //       id: 'apexchart',
-  //       title: 'ApexChart',
-  //       type: 'item',
-  //       url: '/chart',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-pie-chart'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'forms & tables',
-  //   title: 'Forms & Tables',
-  //   type: 'group',
-  //   icon: 'icon-group',
-  //   children: [
-  //     {
-  //       id: 'forms',
-  //       title: 'Basic Forms',
-  //       type: 'item',
-  //       url: '/forms',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-file-text'
-  //     },
-  //     {
-  //       id: 'tables',
-  //       title: 'tables',
-  //       type: 'item',
-  //       url: '/tables',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-server'
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 'other',
-  //   title: 'Other',
-  //   type: 'group',
-  //   icon: 'icon-group',
-  //   children: [
-  //     {
-  //       id: 'sample-page',
-  //       title: 'Sample Page',
-  //       type: 'item',
-  //       url: '/sample-page',
-  //       classes: 'nav-item',
-  //       icon: 'feather icon-sidebar'
-  //     },
-  //     {
-  //       id: 'menu-level',
-  //       title: 'Menu Levels',
-  //       type: 'collapse',
-  //       icon: 'feather icon-menu',
-  //       children: [
-  //         {
-  //           id: 'menu-level-2.1',
-  //           title: 'Menu Level 2.1',
-  //           type: 'item',
-  //           url: 'javascript:',
-  //           external: true
-  //         },
-  //         {
-  //           id: 'menu-level-2.2',
-  //           title: 'Menu Level 2.2',
-  //           type: 'collapse',
-  //           children: [
-  //             {
-  //               id: 'menu-level-2.2.1',
-  //               title: 'Menu Level 2.2.1',
-  //               type: 'item',
-  //               url: 'javascript:',
-  //               external: true
-  //             },
-  //             {
-  //               id: 'menu-level-2.2.2',
-  //               title: 'Menu Level 2.2.2',
-  //               type: 'item',
-  //               url: 'javascript:',
-  //               external: true
-  //             }
-  //           ]
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // }
+  }
 ];

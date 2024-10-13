@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
-import { GuestComponent } from './theme/layout/guest/guest.component';
+import { LoginComponent } from './theme/layout/login/login.component';
 import { NavBarComponent } from './theme/layout/admin/nav-bar/nav-bar.component';
 import { NavigationComponent } from './theme/layout/admin/navigation/navigation.component';
 import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-right.component';
@@ -28,7 +28,7 @@ import { SharedModule } from './theme/shared/shared.module';
   declarations: [
     AppComponent,
     AdminComponent,
-    GuestComponent,    
+    LoginComponent,    
     NavBarComponent,
     NavigationComponent,
     NavRightComponent,

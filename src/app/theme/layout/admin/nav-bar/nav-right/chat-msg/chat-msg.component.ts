@@ -2,8 +2,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 
 // project import
-import { FriendsList } from 'src/app/fack-db/friends-list';
-import { UserChat } from 'src/app/fack-db/user-chat';
+import { FriendsList } from 'src/app/fixee-fack-db/friends-list';
+import { UserChat } from 'src/app/fixee-fack-db/user-chat';
 
 @Component({
   selector: 'app-chat-msg',

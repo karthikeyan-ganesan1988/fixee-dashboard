@@ -2,7 +2,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 // project import
-import { FriendsList } from 'src/app/fack-db/friends-list';
+import { FriendsList } from 'src/app/fixee-fack-db/friends-list';
 
 @Component({
   selector: 'app-chat-user-list',

@@ -961,21 +961,6 @@ $toast-header-color: $gray-600;
 $toast-header-background-color: rgba($white, 0.85);
 $toast-header-border-color: rgba(0, 0, 0, 0.05);
 
-// Badges
-
-$badge-font-size: 75%;
-$badge-font-weight: $font-weight-bold;
-$badge-padding-y: 0.25em;
-$badge-padding-x: 0.4em;
-$badge-border-radius: $border-radius;
-
-$badge-transition: $btn-transition;
-$badge-focus-width: $input-btn-focus-width;
-
-$badge-pill-padding-x: 0.6em;
-// Use a higher than normal value to ensure completely rounded edges when
-// customizing padding or font-size on labels.
-$badge-pill-border-radius: 10rem;
 // Modals
 
 // Padding applied to the modal body
@@ -1086,21 +1071,6 @@ $thumbnail-box-shadow: 0 1px 2px rgba($black, 0.075);
 
 $figure-caption-font-size: 90%;
 $figure-caption-color: $gray-600;
-
-// Breadcrumbs
-
-$breadcrumb-padding-y: 0.75rem;
-$breadcrumb-padding-x: 1rem;
-$breadcrumb-item-padding: 0.5rem;
-
-$breadcrumb-margin-bottom: 1rem;
-
-$breadcrumb-bg: $body-bg; // change
-$breadcrumb-divider-color: $gray-600;
-$breadcrumb-active-color: $gray-600;
-$breadcrumb-divider: quote('/');
-
-$breadcrumb-border-radius: $border-radius;
 
 // Carousel
 

@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // project import
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { CardComponent } from './components/card/card.component';
-import { DataFilterPipe } from './filter/data-filter.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 
 // third party
@@ -41,7 +40,6 @@ import { TableModule } from 'primeng/table';
     ReactiveFormsModule,
     CardComponent,
     BreadcrumbComponent,
-    DataFilterPipe,
     SpinnerComponent,
     NgbModule,
     NgbDropdownModule,
@@ -50,6 +48,7 @@ import { TableModule } from 'primeng/table';
     NKDatetimeModule,
     TableModule
   ],
-  declarations: [DataFilterPipe, SpinnerComponent]
+  declarations: [
+    SpinnerComponent]
 })
 export class SharedModule { }

@@ -7,5 +7,6 @@ export const Spinkit = {
   skThreeBounce: 'sk-three-bounce',
   skWanderingCubes: 'sk-wandering-cubes',
   skWave: 'sk-wave',
-  skLine: 'sk-line-material'
+  skLine: 'sk-line-material',
+  skFadingCircle:'sk-fading-circle'
 };
