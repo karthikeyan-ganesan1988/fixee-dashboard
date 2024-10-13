@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/auth/signin',
+        redirectTo: '/analytics',
         pathMatch: 'full'
       },
       {
