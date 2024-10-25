@@ -17,6 +17,7 @@ import 'mousetrap';
 import { NgbDropdownModule, NgbNavModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 import { TableModule } from 'primeng/table';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { TableModule } from 'primeng/table';
     NgbModule,
     NgScrollbarModule,
     NKDatetimeModule,
-    TableModule
+    TableModule,
+    NgChartsModule
 
   ],
   exports: [
@@ -46,7 +48,8 @@ import { TableModule } from 'primeng/table';
     NgbNavModule,
     NgScrollbarModule,
     NKDatetimeModule,
-    TableModule
+    TableModule,
+    NgChartsModule
   ],
   declarations: [
     SpinnerComponent]
