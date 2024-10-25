@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Service-Provider Records" blockClass="pt-0">
+            <div ngbAccordion>
+                <div class="row">
+                    <div class="input-group mb-3" style="margin-bottom: -5rem !important;">
+                        <label class="input-group-text" style="border: none; background-color: #fff; margin-bottom: 10%; padding-bottom: 5%;">
+                            Active Option:
+                        </label>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <select class="form-control" name="activeoption" id="activeoption" [ngModel]="activeoption" (change)=activeOptionInfo($event)>
+                                    <option value="phoneNo">Phone Number</option>
+                                    <option value="subscription">Subscription Plan</option>
+                                    <option value="status">Status</option>                                                                       
+                                  </select>                                                                  
+                            </div>
+                        </div>
+                        <div class="col-sm-2" style="margin-left: 2%;">
+                            <div class="form-group">
+                                <input type="text" id="inputValue" [disabled]='optionStatus' class="form-control" (input)="inputValueInfo($event)" [ngModel]="inputValue" />
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="d-flex flex-wrap gap-2 btn btn-primary" style="margin-left: 25%;" 
+                                  [disabled]='inputValueStatus'
+                                  (click)="submitActiveReport()">Submit</button>
+                        </div>                  
+                    </div>                                                            
+                </div>
+                <div class="row" *ngIf="!emptyGrid">
+                    <p-table styleClass="p-datatable-gridlines" #dt selectionMode="single"
+                    [responsive]="true" [value]="activeDetails" reorderableColums="true" [rows]="10"
+                    [paginator]="true" [rowsPerPageOptions]="[5,10,20]"
+                    [globalFilterFields]="['Date','PhoneNumber','PlanName','PlanAmount','Assignto','Status']">
+                    <ng-template pTemplate="caption">
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" class="d-flex flex-wrap gap-2 btn btn-primary"
+                                iconPos="left" (click)="exportFile(dt)">Export</button>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span class="p-d-flex p-input-icon-left p-ml-auto">
+                                    <input pInputText class="form-control" type="text"
+                                    (input)="dt.filterGlobal($any($event).target.value, 'contains')"
+                                    style="width: 450px !important;" [placeholder]="'Search Active Records'"/>
+                                    <i class="pi pi-search" style="left: 28rem;"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th [pSortableColumn]="'Date'">
+                                Date
+                                <p-sortIcon [field]="'Date'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'PhoneNumber'">
+                                PhoneNumber
+                                <p-sortIcon [field]="'PhoneNumber'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'PlanName'">
+                                PlanName
+                                <p-sortIcon [field]="'PlanName'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'PlanAmount'">
+                                PlanAmount
+                                <p-sortIcon [field]="'PlanAmount'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'Assignto'">
+                                Assignto
+                                <p-sortIcon [field]="'Assignto'"></p-sortIcon>
+                            </th>
+                            <th [pSortableColumn]="'Status'">
+                                Status
+                                <p-sortIcon [field]="'Status'"></p-sortIcon>
+                            </th>                            
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-record>
+                        <tr [pSelectableRow]="record">
+                            <td class="word-wrap">{{record.Date}}</td>
+                            <td class="word-wrap">{{record.PhoneNumber}}</td>
+                            <td class="word-wrap">{{record.PlanName}}</td>
+                            <td class="word-wrap">{{record.PlanAmount}}</td>
+                            <td class="word-wrap">{{record.Assignto}}</td>
+                            <td class="word-wrap">{{record.Status}}</td>                            
+                        </tr>
+                    </ng-template>                    
+                </p-table>
+                </div>                                
+            </div>
+        </app-card>
+    </div>
+</div>

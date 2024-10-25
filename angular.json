@@ -37,13 +37,15 @@
               "node_modules/bootstrap-timepicker/css/bootstrap-timepicker.css",
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/pivottable/dist/pivot.css"
             ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js",
-              "node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js"
+              "node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js",
+              "node_modules/pivottable/dist/pivot.min.js"
             ]
           },
           "configurations": {

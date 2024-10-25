@@ -67,19 +67,19 @@ export const NavigationItems: NavigationItem[] = [
             id: 'calls',
             title: 'Calls',
             type: 'item',
-            url: '#'
+            url: '/component/calls'
           },
           {
             id: 'active',
             title: 'Active',
             type: 'item',
-            url: '#'
+            url: '/component/active'
           },
           {
-            id: 'conversion',
-            title: 'Conversion',
+            id: 'lead',
+            title: 'Lead',
             type: 'item',
-            url: '#'
+            url: '/component/lead'
           },
           {
             id: 'enquiry',

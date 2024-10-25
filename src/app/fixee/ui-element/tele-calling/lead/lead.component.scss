@@ -1,0 +1,7 @@
+#pivot-table-container {
+    height: 400px;
+    overflow-y: scroll; /* Enable vertical scroll */
+    overflow-x: scroll;
+    scroll-behavior: smooth; /* Optional: smooth scrolling */
+    border: 1px solid #ccc;
+  }
