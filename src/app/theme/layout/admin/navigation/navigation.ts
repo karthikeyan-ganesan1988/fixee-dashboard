@@ -80,19 +80,7 @@ export const NavigationItems: NavigationItem[] = [
             title: 'Lead',
             type: 'item',
             url: '/component/lead'
-          },
-          {
-            id: 'enquiry',
-            title: 'Enquiry',
-            type: 'item',
-            url: '#'
-          },
-          {
-            id: 'complaint',
-            title: 'Complaint',
-            type: 'item',
-            url: '#'
-          }
+          }          
         ]
       }
     ]
