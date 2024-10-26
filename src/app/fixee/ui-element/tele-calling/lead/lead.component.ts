@@ -48,6 +48,7 @@ export default class LeadComponent implements OnInit, AfterViewInit {
           counts[key] = Object.keys(this.groupedByLeads[key]).length; // Count of keys in each nested object
         }
       }
+      console.log(this.groupedByLeads);
       const chartKeys = this.getChartKeys(counts); 
       const chartValue = this.getChartValue(counts);
              
@@ -57,7 +58,7 @@ export default class LeadComponent implements OnInit, AfterViewInit {
         data: {
           labels: chartKeys,
           datasets: [{
-            data: chartValue
+            data: chartValue,            
             
           }]
         },
@@ -86,7 +87,7 @@ export default class LeadComponent implements OnInit, AfterViewInit {
   renderPivotTable() {
     $('#pivot-table-container').pivot(this.leadDataResult, {
       rows: ['Assignto'], // Rows for the pivot
-      cols: ['Date', 'Status'],   // Columns for the pivot
+      cols: ['Date', 'Category', 'Status'],   // Columns for the pivot
       aggregatorName: 'Sum',
       vals: ['PhoneNumber'],    // Values to aggregate      
       rendererName: 'Table' // You can choose Table, Bar Chart, etc.
